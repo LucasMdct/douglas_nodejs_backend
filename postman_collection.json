@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "4f54cb70-2619-4641-ba64-5acdc5b7cf43",
+		"name": "Bootcamp DB1 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2165912"
+	},
+	"item": [
+		{
+			"name": "Cadastrar usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Douglas Junior\",\r\n    \"email\": \"nassifrroma@gmail.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/usuarios",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.globals.set(\"token\", jsonData.token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"nassifrroma@gmail.com\",\r\n    \"senha\": \"senha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/usuarios/login",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar tarefas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Aprender Node\",\r\n    \"concluida\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar tarefas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter tarefa por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marcar tarefa como concluída",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas/1/concluida",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas",
+						"1",
+						"concluida"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Marcar tarefa como pendente",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas/1/pendente",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas",
+						"1",
+						"pendente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualização parcial da tarefa",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Aprender certo!\",\r\n    \"concluida\": \"false\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remoção de tarefas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/tarefas/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"tarefas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cechagem de saúde do sistema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.bootcamp.douglasjunior.xyz/healthcheck",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"bootcamp",
+						"douglasjunior",
+						"xyz"
+					],
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
