@@ -12,6 +12,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && apk add --no-cache --virtual .build-deps build-base mariadb-connector-c-dev \
     && npm install -g npm \
     && npm install mysql2 \
+    && npm install debug \
     && npm install -g nodemon \
     && npm install dotenv \
     && npm cache clean --force \
