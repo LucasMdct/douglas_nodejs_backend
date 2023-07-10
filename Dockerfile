@@ -7,11 +7,13 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --retries=3 \
     CMD wget -q --spider http://127.0.0.1:3000/healthcheck || exit 1
 
-# Instalação das dependências do MySQL e do pacote mysql2
+# Instalação das dependências do MySQL, pacote mysql2 e Nodemon
 RUN apk add --no-cache mariadb-connector-c \
     && apk add --no-cache --virtual .build-deps build-base mariadb-connector-c-dev \
     && npm install -g npm \
     && npm install mysql2 \
+    && npm install -g nodemon \
+    && npm install dotenv \
     && npm cache clean --force \
     && apk del .build-deps
 
