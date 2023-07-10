@@ -27,4 +27,5 @@ RUN echo "USE $DB_DATABASE;" >> init-db.sql
 
 COPY . .
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "dev" ]
+
