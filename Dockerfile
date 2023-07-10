@@ -12,6 +12,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && apk add --no-cache --virtual .build-deps build-base mariadb-connector-c-dev \
     && npm install -g npm \
     && npm install mysql2 \
+    && npm install morgan \
     && npm install debug \
     && npm install http-errors \
     && npm install express \
