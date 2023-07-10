@@ -13,6 +13,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && npm install -g npm \
     && npm install mysql2 \
     && npm install debug \
+    && npm install http-errors \
     && npm install -g nodemon \
     && npm install dotenv \
     && npm cache clean --force \
