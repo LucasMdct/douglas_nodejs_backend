@@ -15,6 +15,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && npm install debug \
     && npm install http-errors \
     && npm install express \
+    && npm install cookie-parser \
     && npm install -g nodemon \
     && npm install dotenv \
     && npm cache clean --force \
