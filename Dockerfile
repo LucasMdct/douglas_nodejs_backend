@@ -1,6 +1,6 @@
 FROM node:18-alpine
 
-WORKDIR /home/ubuntu/db1
+WORKDIR /home/ubuntu/douglas_nodejs_backend/
 
 EXPOSE 3000
 
