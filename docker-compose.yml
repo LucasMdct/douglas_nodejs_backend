@@ -8,4 +8,4 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - $TMP/database:/var/lib/mysql
+      - /home/ubuntu/mysql:/var/lib/mysql
