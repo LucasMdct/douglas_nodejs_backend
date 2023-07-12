@@ -19,6 +19,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && npm install express \
     && npm install cookie-parser \
     && npm install cors \
+    && npm install bcryptjs \
     && npm install -g nodemon \
     && npm install dotenv \
     && npm cache clean --force \
