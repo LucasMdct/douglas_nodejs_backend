@@ -23,7 +23,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && apk del .build-deps
 
 # Configurações do MySQL
-ENV DB_HOST=0.0.0.0
+ENV DB_HOST=127.0.0.1
 ENV DB_USER=root
 ENV DB_PASSWORD=12345678
 ENV DB_DATABASE=exemplo
