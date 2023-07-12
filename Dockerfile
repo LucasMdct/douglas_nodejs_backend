@@ -10,6 +10,7 @@ HEALTHCHECK --interval=30s --retries=3 \
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
 RUN apk add --no-cache mariadb-connector-c \
     && apk add --no-cache --virtual .build-deps build-base mariadb-connector-c-dev \
+    && npm install \
     && npm install -g npm \
     && npm install mysql2 \
     && npm install morgan \
@@ -17,6 +18,7 @@ RUN apk add --no-cache mariadb-connector-c \
     && npm install http-errors \
     && npm install express \
     && npm install cookie-parser \
+    && npm install cors \
     && npm install -g nodemon \
     && npm install dotenv \
     && npm cache clean --force \
