@@ -8,7 +8,7 @@ HEALTHCHECK --interval=30s --retries=3 \
     CMD wget -q --spider http://127.0.0.1:3000/healthcheck || exit 1
 
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
-RUN npm install
+RUN npm install \
     && npm install mysql2 \
     && npm install nodemoon \
     && npm cache clean --force \
