@@ -10,6 +10,7 @@ HEALTHCHECK --interval=30s --retries=3 \
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
 RUN && npm install \
     && npm install mysql2 \
+    && npm install nodemoon \
     && npm cache clean --force \
     && apk update \
     && apk del .build-deps
@@ -17,9 +18,10 @@ RUN && npm install \
 COPY package.json package-lock.json ./
 
 # Configurações do MySQL
-ENV DB_HOST=127.0.0.1
-ENV DB_USER=root
-ENV DB_PASSWORD=12345678
-ENV DB_DATABASE=exemplo
+ENV DATABASE_HOST=127.0.0.1
+ENV DATABASE_PORT=3306
+ENV DATABASE_USER=root
+ENV DATABASE_PASSWORD=12345678
+ENV DATABASE_NAME=exemplo
 
 CMD [ "npm", "run", "start" ]
