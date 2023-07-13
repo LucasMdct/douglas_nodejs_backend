@@ -23,4 +23,4 @@ ENV DATABASE_USER=root
 ENV DATABASE_PASSWORD=12345678
 ENV DATABASE_NAME=exemplo
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "dev" ]
