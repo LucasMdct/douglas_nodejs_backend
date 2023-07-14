@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www",
-    "lint": "eslint . --cache"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "2.4.3",
@@ -18,8 +17,8 @@
     "http-errors": "~1.6.3",
     "jsonwebtoken": "~9.0.0",
     "morgan": "~1.9.1",
-    "mysql2": "^3.4.1",
-    "sequelize": "^6.32.1"
+    "mysql2": "~3.4.1",
+    "sequelize": "~6.32.1"
   },
   "devDependencies": {
     "nodemon": "~2.0.22"
