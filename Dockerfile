@@ -19,4 +19,6 @@ RUN npm install \
     && npm cache clean --force \
     && apk update 
 
+COPY . .
+
 CMD [ "npm", "run", "dev" ]
