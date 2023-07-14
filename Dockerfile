@@ -1,11 +1,16 @@
 FROM node:18-alpine
 
-WORKDIR /home/node/douglas_nodejs_backend
+# Instala dependências necessárias para rodar a aplicação
+RUN apk add --no-cache python g++ make
+
+WORKDIR /app
 
 EXPOSE 3000
 
 HEALTHCHECK --interval=30s --retries=3 \
     CMD wget -q --spider http://127.0.0.1:3000/healthcheck || exit 1
+
+COPY package.json package-lock.json ./
 
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
 RUN npm install \
@@ -13,8 +18,6 @@ RUN npm install \
     && npm install nodemoon \
     && npm cache clean --force \
     && apk update 
-
-COPY package.json package-lock.json ./
 
 # Configurações do MySQL
 ENV DATABASE_HOST=srv-captain--mysql-db
