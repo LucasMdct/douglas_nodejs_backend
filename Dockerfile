@@ -1,7 +1,7 @@
 FROM node:18-alpine
 
 # Instala dependências necessárias para rodar a aplicação
-RUN apk add --no-cache python g++ make
+RUN apk add --no-cache python3 g++ make
 
 WORKDIR /app
 
@@ -18,12 +18,5 @@ RUN npm install \
     && npm install nodemoon \
     && npm cache clean --force \
     && apk update 
-
-# Configurações do MySQL
-ENV DATABASE_HOST=srv-captain--mysql-db
-ENV DATABASE_PORT=3306
-ENV DATABASE_USER=root
-ENV DATABASE_PASSWORD=12345678
-ENV DATABASE_NAME=exemplo
 
 CMD [ "npm", "run", "dev" ]
