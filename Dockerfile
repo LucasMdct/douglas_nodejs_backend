@@ -13,10 +13,6 @@ HEALTHCHECK --interval=30s --retries=3 \
 COPY package.json package-lock.json ./
 
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
-RUN npm install \
-    && npm install mysql2 \
-    && npm install nodemon \
-    && npm cache clean --force \
-    && apk update 
+RUN npm install 
 
-CMD [ "npm", "run", "dev" ]
+CMD [ "npm", "run", "start" ]
