@@ -17,7 +17,7 @@ RUN npm install \
 COPY package.json package-lock.json ./
 
 # Configurações do MySQL
-ENV DATABASE_HOST=127.0.0.1
+ENV DATABASE_HOST=srv-captain--mysql-db
 ENV DATABASE_PORT=3306
 ENV DATABASE_USER=root
 ENV DATABASE_PASSWORD=12345678
