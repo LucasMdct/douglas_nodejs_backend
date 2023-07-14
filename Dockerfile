@@ -3,7 +3,7 @@ FROM node:18-alpine
 # Instala dependências necessárias para rodar a aplicação
 RUN apk add --no-cache python3 g++ make
 
-WORKDIR /app
+WORKDIR ./
 
 EXPOSE 3000
 
