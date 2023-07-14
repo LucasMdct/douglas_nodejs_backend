@@ -3,7 +3,7 @@ FROM node:18-alpine
 # Instala dependências necessárias para rodar a aplicação
 RUN apk add --no-cache python3 g++ make
 
-WORKDIR /home/ubuntu/douglas_nodejs_backend
+WORKDIR /app
 
 EXPOSE 3000
 
@@ -18,7 +18,5 @@ RUN npm install \
     && npm install nodemon \
     && npm cache clean --force \
     && apk update 
-
-COPY . .
 
 CMD [ "npm", "run", "dev" ]
