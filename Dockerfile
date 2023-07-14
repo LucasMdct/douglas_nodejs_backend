@@ -15,7 +15,7 @@ COPY package.json package-lock.json ./
 # Instalação das dependências do MySQL, pacote mysql2 e Nodemon
 RUN npm install \
     && npm install mysql2 \
-    && npm install nodemoon \
+    && npm install nodemon \
     && npm cache clean --force \
     && apk update 
 
